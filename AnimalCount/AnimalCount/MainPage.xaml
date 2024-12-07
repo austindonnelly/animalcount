@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AnimalCount.MainPage">
+
+    <StackLayout>
+       <Label Text="SCORE" x:Name="scoreLabel" HorizontalTextAlignment="Center" FontSize="72"/>
+        
+        <CollectionView  x:Name="collectionView"  ItemsSource="{Binding ScoringAnimals}" ItemsLayout="VerticalGrid, 2">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Grid Padding="20">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                    <Button Text="{Binding Name}" FontSize="24" Grid.Row="0" Grid.Column="0"  Clicked="Button_Clicked" />
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <Image Source="animalcountart.png" WidthRequest="120" />
+
+        <Button x:Name="ResetScore" Text="Restart" Clicked="ResetScore_Clicked"/>
+    </StackLayout>
+
+</ContentPage>
